@@ -23,11 +23,10 @@ public class Printer {
 	public boolean printPDF(File f) {
 		Main.logger.log(LEVEL.INFO, "Método .printPDF lanzado...");
 		DocFlavor flavor = DocFlavor.SERVICE_FORMATTED.PAGEABLE;
-		DocFlavor flavor2 = DocFlavor.SERVICE_FORMATTED.PRINTABLE;
 		PrintRequestAttributeSet patts = new HashPrintRequestAttributeSet();
 		patts.add(Sides.DUPLEX);
 		Main.logger.log(LEVEL.INFO, "Obteniendo lista de impresoras...");
-		PrintService[] ps = PrintServiceLookup.lookupPrintServices(flavor2, patts);
+		PrintService[] ps = PrintServiceLookup.lookupPrintServices(flavor, patts);
 		System.out.println(ps);
 		if (ps.length == 0) {
 			System.out.println("No hay impresoras disponibles o no están configuradas");
